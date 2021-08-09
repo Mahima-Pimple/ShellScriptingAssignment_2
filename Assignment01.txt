@@ -1,0 +1,13 @@
+Assignment01
+
+Create a script that, when run, will display the following environment variables to the console:
+
+USER
+HOME
+HISTCONTROL
+TERM
+Solution : 
+echo "Username :$USER"
+echo "HOME :$HOME"
+echo "HISTCONTROL :$HISTCONTROL"
+echo "TERM : $TERM"

@@ -1,0 +1,25 @@
+Assignment06
+
+Write a script that evaluates and displays the following arithmetic operations:
+
+Add two numbers
+Add two numbers and multiply by a third, do not group anything 
+Add two numbers, grouped (changing order of precedence) and multiply by a third
+
+Keep in mind special characters and/or escape characters as needed.
+
+Solution :
+num1=3
+num2=5
+num3=2
+echo $(( num1+num2 ))
+echo $(expr $num1 + $num2 \* $num3)
+echo $(expr $(expr $num1 + $num2 ) \* $num3 )
+
+Output : 
+mahima ganesh pimple@LAPTOP-NJLO628P ~/ShellScripting
+$ sh Assignment06.sh
+8
+13
+16
+

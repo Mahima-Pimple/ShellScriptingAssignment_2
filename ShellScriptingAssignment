@@ -1,0 +1,363 @@
+Assignment01
+
+Create a script that, when run, will display the following environment variables to the console:
+
+USER
+HOME
+HISTCONTROL
+TERM
+Solution : 
+echo "Username :$USER"
+echo "HOME :$HOME"
+echo "HISTCONTROL :$HISTCONTROL"
+echo "TERM : $TERM"
+
+Assignment02 
+
+Write a script that sets FOUR variables:
+
+MYUSERNAME
+MYPASSWORD
+STARTOFSCRIPT
+ENDOFSCRIPT
+
+
+Populate the first two with some default value and use 
+command redirection to set the third and fourth value to the 
+date/time of when the script was started and completed. 
+Within the script, be sure to display the values to the terminal when run.
+
+Solution :
+MYUSERNAME=$USER
+MYPASSWORD='password'
+STARTOFSCRIPT='date'
+ENDOFSCRIPT='date'
+echo "My Username is $MYUSERNAME"
+echo "My Password is $MYPASSWORD"
+echo "started this Script at $STRATOFSCRIPT"
+echo "Ended this Script at $ENDOFSCRIPT"
+
+
+Assignment03
+
+Develop a script that creates, sets and displays two variables
+to the terminal when run. Within this script, add comments to 
+explain what the script is doing, what each variable is and, 
+using inline comments, what each command is doing.
+Solution : 
+name="Mahima" #created variable name 
+surname="Pimple" #created variable surname
+echo $name 
+echo $surname
+#this scrip is printing name and surname
+
+Output : 
+mahima ganesh pimple@LAPTOP-NJLO628P ~/ShellScripting
+$ sh Assignment03.sh
+Mahima
+Pimple
+
+Assignment04 
+
+Create a simple script that does the following:
+
+Echo a full sentence to the terminal
+Echo a different full sentence, but redirect it to /dev/null
+
+Run and display the results and make sure the statements appear where intended.
+Solution : 
+echo "This is my Assignment 4" 
+echo "Assignment 4" > /dev/null 
+
+Output : 
+mahima ganesh pimple@LAPTOP-NJLO628P ~/ShellScripting
+$ sh Assignment04.sh
+This is my Assignment 4
+
+Assignment05
+
+Write a script that runs three commands:
+
+Evaluate an arithmetic expression
+Attempt to remove a file that does not exist in the current directory
+Evaluate another arithmetic expression
+
+
+Immediately after each command, echo the exit status of that command to the terminal using the appropriate variable to show 
+success and failure exit codes.
+Solution : 
+n1=5
+n2=10
+echo $(expr $n1 + $n2)
+echo $(expr $n1 - $n2)
+echo $(expr $n1 \* $n2)
+echo $(expr $n1 / $n2)
+echo $(expr $n1 % $n2)
+
+echo exit $?
+echo
+
+
+rm sample.txt
+
+echo exit $?
+echo
+
+n3=3
+n4=10
+echo $(expr $n3 + $n4)
+echo $(expr $n3 - $n4)
+echo $(expr $n3 \* $n4)
+echo $(expr $n3 / $n4)
+echo $(expr $n3 % $n4)
+
+
+echo exit $?
+
+Output : 
+mahima ganesh pimple@LAPTOP-NJLO628P ~/ShellScripting
+$ sh Assignment05.sh
+15
+-5
+50
+0
+5
+exit 0
+
+rm: cannot remove 'sample.txt': No such file or directory
+exit 1
+
+13
+-7
+30
+0
+3
+exit 0
+
+
+Assignment06
+
+Write a script that evaluates and displays the following arithmetic operations:
+
+Add two numbers
+Add two numbers and multiply by a third, do not group anything 
+Add two numbers, grouped (changing order of precedence) and multiply by a third
+
+Keep in mind special characters and/or escape characters as needed.
+
+Solution :
+num1=3
+num2=5
+num3=2
+echo $(( num1+num2 ))
+echo $(expr $num1 + $num2 \* $num3)
+echo $(expr $(expr $num1 + $num2 ) \* $num3 )
+
+Output : 
+mahima ganesh pimple@LAPTOP-NJLO628P ~/ShellScripting
+$ sh Assignment06.sh
+8
+13
+16
+
+Assignment07
+
+Write a script that will use command substitution to dynamically set variable values:
+
+TODAYSDATE - should contain date/time stamp when executed
+USERFILES - the results of a find run on the /home directory to list all files owned by 'user' account
+
+
+Additionally, set two aliases:
+
+TODAY - should be an alias for the 'date' command
+UFILES - should be an alias to the full command used to set the variable USERFILES above
+
+Finally, display all variables and alias values when the script is run.
+
+Solution : 
+echo "Enter the date"
+read date
+echo "$date"
+echo "Enter the details of files"
+read list
+echo "$list"
+#
+alias [name[=value]
+
+Output : 
+mahima ganesh pimple@LAPTOP-NJLO628P ~/ShellScripting
+$ sh Assignment7.sh
+Enter the date
+09/09/1999
+09/09/1999
+Enter the details of files
+File2
+File2
+
+Assignment08
+
+Create a script that interacts with the user. You will want to prompt the user to enter the following information (which you will capture and place into the following variables):
+
+FIRSTNAME
+LASTNAME
+USERAGE
+
+Greet the user with their name and current age displayed and then calculate and display their age in 10 years.
+
+Solution : 
+echo "Enter Name"
+read FIRSTNAME 
+echo "Enter Lastname"
+read LASTNAME 
+echo "Enter Age"
+read USERAGE
+echo " Hiii My Name is $FIRSTNAME $LASTNAME and My age is $USERAGE "
+
+Output : 
+mahima ganesh pimple@LAPTOP-NJLO628P ~/ShellScripting
+$ sh Assignment08.sh
+Enter Name
+Mahima
+Enter Lastname
+Pimple
+Enter Age
+22
+ Hiii My Name is Mahima Pimple and My age is 22
+
+
+Assignment 09
+
+Write a script intended to iterate through an array called SERVERLIST containing at 
+least four values (server names). Display all four values to the terminal when run.
+Solution : 
+SERVERLIST=('List1' 'List2' 'List3' 'List4')
+echo "${SERVERLIST[@]}"
+
+Output : 
+mahima ganesh pimple@LAPTOP-NJLO628P ~/ShellScripting
+$ sh Assignment09.sh
+List1 List2 List3 List4
+
+Assignment12
+
+Write a script that will prompt the user to enter a number between 1 and 3. Capture that number in a variable and then test that variable. Be sure to display the variable and it's value as appropriate within an if/then/else statement where the final statement will display if they did not enter a number between 1 and 3 telling them they failed to follow instructions. Redirect errors from each of the tests to /dev/null (to prevent script errors from showing if text is entered for example).
+
+Solution :
+echo "Enter the number between 1-3"
+read number
+if [ "$number" -ge 1 ] && [ "$number" -le 3 ]
+then
+  echo "$number is present in the range"
+else
+  echo "Failed to follow instructions"
+fi
+
+Output : 
+mahima ganesh pimple@LAPTOP-NJLO628P ~/ShellScripting
+$ sh Assignment12.sh
+Enter the number between 1-3
+3
+3 is present in the range
+
+mahima ganesh pimple@LAPTOP-NJLO628P ~/ShellScripting
+$ sh Assignment12.sh
+Enter the number between 1-3
+7
+Failed to follow instructions
+
+
+
+Assignment14
+
+Develop a simple three item menu to display on the terminal. Your script, upon display of the menu, should prompt the user to choose one of the three available options. Using the 'case' statement from the course, display three unique messages depending on which number they chose, with a catch all message letting them know if they
+went outside the bounds of instructions.
+
+Solution :
+echo Enter Any Food You Want
+read Food
+
+case $Food in
+    "Apple")
+	echo "Price of $Food is 100 dollar" ;;
+    "Mango")
+	echo "Price of $Food is 50 dollar" ;;
+    "Pineapple")
+	echo "Price of $Food is 120 dollar" ;;
+    * )
+	echo "Unknown Food" ;;
+   esac
+
+Output : 
+mahima ganesh pimple@LAPTOP-NJLO628P ~/ShellScripting
+$ sh Assignment14.sh
+Enter Any Food You Want
+Mango
+Price of Mango is 50 dollar
+
+Create a script that prompts the user for a number. That number is to be used to display a simple message to the terminal X number of times (where X is the number captured from the user input). The message should include an indication of the number for each count the message is displayed.
+
+Solution : 
+echo "Enter any number"
+read number
+echo "$number number of times the number appears"
+for (( i=1; i<=$number; i++ ))
+do
+  echo "The count is $i"
+done
+
+Output : 
+mahima ganesh pimple@LAPTOP-NJLO628P ~/ShellScripting
+$ sh Assignment15.sh
+Enter any number
+3
+3 number of times the number appears
+The count is 1
+The count is 2
+The count is 3
+
+
+Assignment16 
+Create a simple text file containing a list of super heros (or some names if preferred), use at least four values, one per line in the file.
+
+Write a bash shell script that then reads that file and displays it line by line on the terminal window.
+
+Solution : 
+Batman
+Spiderman
+Ant-Man
+The Avengers
+
+Output : 
+mahima ganesh pimple@LAPTOP-NJLO628P ~/ShellScripting
+$ cat Assignment16.sh
+Batman
+Spiderman
+Ant-Man
+The Avengers
+
+Assignment18 
+
+Create a simple text file at the command prompt. This file should contain three values - CPU, Memory and Disk space for an imaginary system, all on one line and delimited with a '|' character.
+
+Write a script to read that file and prompt the user for the delimiter value. Use that delimiter along with the IFS variable and read those delimited values into three appropriately named variables. Finally, display them with labels, one each per line.
+
+Solution : 
+
+var="CPU=00.01| Memory=64GB | DiskSpace=32MB"
+IFS='|'
+for i in $var
+do
+echo [$i]
+done
+
+Output : 
+mahima ganesh pimple@LAPTOP-NJLO628P ~/ShellScripting
+$ sh Assignment18.sh
+[CPU=00.01]
+[ Memory=64GB ]
+[ DiskSpace=32MB]
+
+
+
+

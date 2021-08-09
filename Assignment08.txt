@@ -1,0 +1,29 @@
+Assignment08
+
+Create a script that interacts with the user. You will want to prompt the user to enter the following information (which you will capture and place into the following variables):
+
+FIRSTNAME
+LASTNAME
+USERAGE
+
+Greet the user with their name and current age displayed and then calculate and display their age in 10 years.
+
+Solution : 
+echo "Enter Name"
+read FIRSTNAME 
+echo "Enter Lastname"
+read LASTNAME 
+echo "Enter Age"
+read USERAGE
+echo " Hiii My Name is $FIRSTNAME $LASTNAME and My age is $USERAGE "
+
+Output : 
+mahima ganesh pimple@LAPTOP-NJLO628P ~/ShellScripting
+$ sh Assignment08.sh
+Enter Name
+Mahima
+Enter Lastname
+Pimple
+Enter Age
+22
+ Hiii My Name is Mahima Pimple and My age is 22

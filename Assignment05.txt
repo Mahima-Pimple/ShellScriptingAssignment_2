@@ -1,0 +1,60 @@
+Assignment05
+
+Write a script that runs three commands:
+
+Evaluate an arithmetic expression
+Attempt to remove a file that does not exist in the current directory
+Evaluate another arithmetic expression
+
+
+Immediately after each command, echo the exit status of that command to the terminal using the appropriate variable to show 
+success and failure exit codes.
+Solution : 
+n1=5
+n2=10
+echo $(expr $n1 + $n2)
+echo $(expr $n1 - $n2)
+echo $(expr $n1 \* $n2)
+echo $(expr $n1 / $n2)
+echo $(expr $n1 % $n2)
+
+echo exit $?
+echo
+
+
+rm sample.txt
+
+echo exit $?
+echo
+
+n3=3
+n4=10
+echo $(expr $n3 + $n4)
+echo $(expr $n3 - $n4)
+echo $(expr $n3 \* $n4)
+echo $(expr $n3 / $n4)
+echo $(expr $n3 % $n4)
+
+
+echo exit $?
+
+Output : 
+mahima ganesh pimple@LAPTOP-NJLO628P ~/ShellScripting
+$ sh Assignment05.sh
+15
+-5
+50
+0
+5
+exit 0
+
+rm: cannot remove 'sample.txt': No such file or directory
+exit 1
+
+13
+-7
+30
+0
+3
+exit 0
+

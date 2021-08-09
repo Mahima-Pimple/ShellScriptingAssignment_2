@@ -1,0 +1,12 @@
+Assignment 09
+
+Write a script intended to iterate through an array called SERVERLIST containing at 
+least four values (server names). Display all four values to the terminal when run.
+Solution : 
+SERVERLIST=('List1' 'List2' 'List3' 'List4')
+echo "${SERVERLIST[@]}"
+
+Output : 
+mahima ganesh pimple@LAPTOP-NJLO628P ~/ShellScripting
+$ sh Assignment09.sh
+List1 List2 List3 List4

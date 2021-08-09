@@ -1,0 +1,16 @@
+Assignment04 
+
+Create a simple script that does the following:
+
+Echo a full sentence to the terminal
+Echo a different full sentence, but redirect it to /dev/null
+
+Run and display the results and make sure the statements appear where intended.
+Solution : 
+echo "This is my Assignment 4" 
+echo "Assignment 4" > /dev/null 
+
+Output : 
+mahima ganesh pimple@LAPTOP-NJLO628P ~/ShellScripting
+$ sh Assignment04.sh
+This is my Assignment 4
